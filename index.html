@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="dist/material-fonts-icons.js" rel="stylesheet" type="text/css">
+    <link href="dist/quasar.min.css" rel="stylesheet" type="text/css">
+    <link href="dist/grapes.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div id="gjs">
+      <mjml>
+          <mj-body>
+          <mj-section>
+              <mj-column>
+              <mj-text>My Company</mj-text>
+              </mj-column>
+          </mj-section>
+          </mj-body>
+      </mjml>
+    </div>
+    
+    <script src="dist/vue-min.js"></script>
+    <script src="dist/quasar-min.js"></script>
+
+    <script src="dist/grapes.js"></script>
+    <script src="dist/grapes-mjml.js"></script>
+
+    <script>
+      new Vue({
+        el: '#q-app',
+        data: function () {
+          return {}
+        },
+        mounted () {
+          grapesjs.init({
+            fromElement: 1,
+            storageManager: true, // save data to local storage
+            container : '#gjs',
+            plugins: ['grapesjs-mjml'],
+            pluginsOpts: {
+              'grapesjs-mjml': {
+                resetBlocks: false,
+                resetStyleManager: false,
+                resetDevices: false
+                /* ...options */
+              }
+            },
+            assetManager: {
+              assets: [
+                'http://placehold.it/350x250/78c5d6/fff/image1.jpg',
+                {
+                  type: 'image',
+                  src: 'http://placehold.it/350x250/459ba8/fff/image2.jpg',
+                  height: 350,
+                  width: 250, 
+                  name: 'displayName'
+                },
+                {
+                  src: 'http://placehold.it/350x250/79c267/fff/image3.jpg',
+                  height: 350,
+                  width: 250,
+                  name: 'displayName'
+                },
+                {
+                  src: 'http://placehold.it/350x250/79c267/fff/image3.jpg',
+                  height: 350,
+                  width: 250,
+                  name: 'displayName'
+                }
+              ]
+            }
+          });
+        },
+        methods: {},
+      })
+    </script>
+  </body>
+</html>
+
+<style>
+  /* We can remove the border we've set at the beginnig */
+#gjs {
+  border: none;
+}
+/* Theming */
+
+/* Primary color for the background */
+.gjs-one-bg {
+  background-color: #1976d2;
+}
+
+/* Secondary color for the text color */
+.gjs-two-color {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Tertiary color for the background */
+.gjs-three-bg {
+  background-color: #1976d2;
+  color: white;
+}
+
+/* Quaternary color for the text color */
+.gjs-four-color,
+.gjs-four-color-h:hover {
+  color: #26a69a;
+}
+</style>
